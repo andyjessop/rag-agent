@@ -9,6 +9,26 @@ compatibility_date = "2024-05-12"
 [triggers]
 crons = ["* * * * *"] # * * * * * = run every minute
 
+[[vectorize]]
+binding = "VECTORIZE_INDEX"
+index_name = "rag-agent"
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "RAG_AGENT_KV"
+id = "b5a15634d2954bd8b27bdc14f68540ed"
+preview_id = "b693083580ec47e5a727105f6dfcb69e"
+
+[[durable_objects.bindings]]
+name = "FILE_EMBEDDING_TRACKER"
+class_name = "FileEmbeddingTracker"
+
+[[migrations]]
+tag = "v1"
+new_classes = ["FileEmbeddingTracker"]
+
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Worker, running it closer to your back-end infrastructure
 # rather than the end user may result in better performance.
